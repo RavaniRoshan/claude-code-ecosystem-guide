@@ -1,0 +1,51 @@
+name: Submit a repo
+description: Point the field guide at a repository that belongs in one of the 11 domains
+labels: ["submission"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Repository URL
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: true
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Which domain?
+      options:
+        - Foundations & catalogues
+        - Skill packs & harnesses
+        - Memory, context & codebase intelligence
+        - Design, UI & diagrams
+        - Video: reels, cuts, full productions
+        - Music, voice & audio
+        - Images, 3D & game assets
+        - Documents, decks & knowledge work
+        - Web, browser & research
+        - Business ops, marketing & publishing
+        - Science & specialist domains
+        - Somewhere else / new domain idea
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What does it actually do?
+      description: One plain sentence — no marketing voice.
+      placeholder: Turns long-form video or audio into vertical shorts locally.
+    validations:
+      required: true
+  - type: textarea
+    id: use
+    attributes:
+      label: Point it at
+      description: Who should reach for this first?
+      placeholder: Repurposing podcasts and streams.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Where did you find it?
+      description: For new repos without star proof. Leave empty otherwise.

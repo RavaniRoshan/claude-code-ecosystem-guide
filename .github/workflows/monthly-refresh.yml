@@ -1,0 +1,43 @@
+name: Monthly data refresh
+
+# Pulls live star counts for all 118 repos, updates index.html,
+# and opens a PR. Merge it to publish the refresh (and use its diff
+# as social content: "what changed in the Claude Code ecosystem").
+
+on:
+  schedule:
+    - cron: "0 9 1 * *"   # 1st of the month, 09:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh stars
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/refresh-stars.py
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: data-refresh
+          delete-branch: true
+          commit-message: "Monthly data refresh from the GitHub REST API"
+          title: "Monthly data refresh"
+          body: |
+            Automated star-count refresh from the GitHub REST API.
+
+            **Reviewer checklist**
+            - [ ] Spot-check a few counts against the repos
+            - [ ] Merge → the site's "verified" date updates automatically
+            - [ ] Copy the diff summary for the monthly "what changed" post

@@ -117,7 +117,7 @@ Each chain is fully annotated on the live page, with a link to every repo.
 - **Star counts** were pulled from the GitHub REST API on **5 November 2026** and typed into the page as a snapshot. Star counts drift daily — treat the numbers as a verification date, not a live ranking.
 - **Descriptions** are editorial summaries written for this guide; they are deliberately not the projects' own taglines.
 - **Ordering** inside each domain is stars, descending. Within ~1k stars the order can be stale within weeks.
-- **Refresh arithmetic**: open [`index.html`](https://github.com/RavaniRoshan/claude-code-ecosystem-guide/blob/main/index.html), update each `<span class="num">` star value and bar width, adjust the four hero stats and the footer's date note, and deploy. Bar widths scale against the page maximum (433k).
+- **Keeping numbers fresh**: a scheduled GitHub Action runs [`scripts/refresh-stars.py`](scripts/refresh-stars.py) on the 1st of every month — it re-pulls every repo's stars from the REST API, updates counts, bar widths, hero stats and the "verified" date, then opens a **Monthly data refresh** PR. Merge it and the site is current; steal its diff for the monthly "what changed" post. Manual run: `python scripts/refresh-stars.py --dry-run`.
 - **Selection bias**: repos were picked for working product surface and credible maintenance — not by popularity alone. Tell us about a repo that belongs in the tables in [issues](https://github.com/RavaniRoshan/claude-code-ecosystem-guide/issues/new?title=%5Bsubmission%5D%20Add%20a%20repo).
 
 </details>
