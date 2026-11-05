@@ -15,6 +15,8 @@
 
 <p align="center"><strong>Official channels:</strong> <a href="https://ravaniroshan.github.io/claude-code-ecosystem-guide/">Live site</a> · <a href="https://github.com/RavaniRoshan/claude-code-ecosystem-guide">GitHub</a><br/>The guide is free to read, share and fork. Not affiliated with Anthropic. Inclusion is not an endorsement. <a href="#notices">Details →</a></p>
 
+<p align="center"><sub>If this guide saved you an afternoon of searching, <a href="https://github.com/RavaniRoshan/claude-code-ecosystem-guide/stargazers">a ⭐</a> is what keeps it refreshed.</sub></p>
+
 <p align="center">Start with a job you didn't know agents could do: cut a podcast into reels, score it with original music, diagram an architecture, run a research brief. This page maps <strong>118 open-source repositories</strong> across <strong>11 domains</strong> that turn Claude — and agent harnesses like it — into a video editor, a music producer, a designer and a small operations team.</p>
 
 <p align="center">
